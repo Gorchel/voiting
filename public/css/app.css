@@ -1,0 +1,166 @@
+header {
+	margin: 5px 0px;
+	background-image: url('/img/header21.jpg');
+	background-size: cover;
+	background-position: bottom;
+	padding: 100px 0px;
+
+	border-bottom: 4px solid #7AE2DE;
+	
+	//min-height: 600px;
+}
+
+header h1 {
+	color: white;
+	text-transform: uppercase;
+}
+
+header h1 b {
+	color: #7AE2DE;
+}
+
+header h3 {
+	color: #E4F1FE;
+
+	text-transform: uppercase;
+	margin: 70px 0px 30px 0px;
+} 
+
+#clock-table {
+	margin: 0px auto;
+}
+
+#clock-table td {
+	text-align: center;
+	padding: 10px;
+}
+
+#clock-table #clock-number {
+	font-size: 60px;
+	font-weight: 600;
+	color: white;
+	text-shadow: 1px 1px 1px rgba(122, 226, 222, 1);
+}
+
+#clock-table #clock-text {
+	font-size: 30px;
+	color: #E4F1FE;
+}
+
+.crew {
+	padding-top: 80px;
+}
+
+#сontestants-tab {
+	border-bottom: none;
+	display: inline-block;
+	margin: 20px 0px 40px 0px;
+}
+
+#сontestants-tab a {
+	color: #414A52;
+	font-weight: 600;
+}
+
+#сontestants-tab .active {
+	border-right: 3px solid #7AE2DE; 
+}
+
+#сontestants-tab .active a {
+	border-bottom: 1px solid #ddd;
+	border-right: none;
+	margin: 0px;
+}
+
+h4 {
+	margin-bottom: 30px;
+}
+
+.logo h3 {
+	color: white;
+	margin: 10px 0px;
+}
+
+.logo h3 b {
+	color: #7AE2DE;
+	font-size: 30px;
+}
+
+.crew-member:hover {
+	cursor: pointer;
+}
+
+.vote-conter {
+	margin: 10px 0px;
+	font-weight: 600;
+    font-size: 25px;
+}
+
+.crew-container:hover .vote-conter {
+	color: #7AE2DE;
+}
+
+.overlay-check {
+	text-align: left;
+	font-weight: 600;
+	margin: 1px;
+	padding: 1px;
+	font-size: 18px;
+}
+
+.overlay-check:hover {
+	color: #454648;
+}
+
+.overlay-check:after {
+    display: block;
+    width: 50px;
+    height: 2px;
+    margin-top: 5px;
+    content: '';
+    background-color: #454648;
+}
+
+#registration-modal .modal-content {
+	background-color: rgba(240,240,240,.9) !important;
+
+}
+
+#registration-modal label {
+	padding: 10px 0px;
+    font-weight: 500;
+}
+
+.registration-btn {
+	background-color: #414A52;
+	color: white;
+}
+
+.registration-btn:hover {
+	color: rgb(240,240,240);
+}
+
+.registration-btn:focus {
+	color: rgb(240,240,240);
+}
+
+.swal2-buttonswrapper button {
+	margin: 10px;
+}
+
+.swal2-warning {
+	border-color: #7AE2DE !important;
+	color: #7AE2DE !important;
+}
+
+.cancel-btn {
+	border: 1px solid black;
+	background-color: rgb(250,250,250);
+}
+
+.cancel-btn:hover {
+	background-color: rgb(230,230,230);
+}
+
+
+    
