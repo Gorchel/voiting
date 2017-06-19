@@ -1,0 +1,1 @@
+<a href="{{env('APP_URL').'/activasion?id='.$user->id.'&secrete='.$user->secrete}}">Код подтверждения</a>

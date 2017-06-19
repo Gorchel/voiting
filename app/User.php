@@ -16,7 +16,7 @@ class User extends CartalystUser
      * @var array
      */
     protected $fillable = [
-        'email', 'password', 'sex','first_name', 'last_name', 'file_path', 'voite_count', 'description',
+        'email', 'password', 'sex','first_name', 'last_name', 'file_path', 'voite_count', 'description','secrete', 'activated',
     ];
 
     /**

@@ -35,7 +35,6 @@
                         <nav>
                             <ul class="primary-nav">
                                 <li><a href="#team">Участники</a></li>
-                                <li><a href="#about">О проекте</a></li>
                             </ul>
                         </nav>
                         <div class="secondary-nav-wrapper">
@@ -97,14 +96,14 @@
                         <div class="row">
                             @forelse( $сontestants[1] as $сontestant ) 
                                 <div class="col-md-3 col-sm-6 col-xs-12 crew-container">
-                                    <article class="crew-member {{!empty($user) ? count($user->сontestants) == 0 ? 'voite' : '' : 'registration'}}" data-id="{{ $сontestant->id }}" style="background-image: url({{ 'img/'.$сontestant->file_path }})">
+                                    <article class="crew-member {{!empty($user) ? (count($user->сontestants) == 0) && !empty($user->activated) ? 'voite' : '' : 'registration'}}" data-id="{{ $сontestant->id }}" style="background-image: url({{ 'img/'.$сontestant->file_path }})">
                                         <figure>
                                             <figcaption class="overlay">
                                                 <h2>{{$сontestant->first_name.' '.$сontestant->last_name}}</h2>
                                                 <p>{{$сontestant->description}}</p>
                                                 @if(empty($user))
                                                     <p class="overlay-check">Зарегестрироваться</p>
-                                                @elseif(count($user->сontestants) == 0)
+                                                @elseif(count($user->сontestants) == 0 && !empty($user->activated))
                                                     <p class="overlay-check">Проголосовать</p>
                                                 @endif
                                             </figcaption>
@@ -120,14 +119,14 @@
                         <div class="row">
                             @forelse( $сontestants[0] as $сontestant ) 
                                 <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <article class="crew-member {{!empty($user) ? count($user->сontestants) == 0 ? 'voite' : '' : 'registration'}}" data-id="{{ $сontestant->id }}" style="background-image: url({{ 'img/'.$сontestant->file_path }})">
+                                    <article class="crew-member {{!empty($user) ? (count($user->сontestants) == 0) && !empty($user->activated) ? 'voite' : '' : 'registration'}}" data-id="{{ $сontestant->id }}" style="background-image: url({{ 'img/'.$сontestant->file_path }})">
                                         <figure>
                                             <figcaption class="overlay">
                                                 <h2>{{$сontestant->first_name.' '.$сontestant->last_name}}</h2>
                                                 <p>{{$сontestant->description}}</p>
                                                 @if(empty($user))
                                                     <p class="overlay-check">Зарегестрироваться</p>
-                                                @elseif(count($user->сontestants) == 0)
+                                                @elseif(count($user->сontestants) == 0 && !empty($user->activated))
                                                     <p class="overlay-check">Проголосовать</p>
                                                 @endif
                                             </figcaption>
@@ -148,8 +147,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 wp4">
-                        <h2>Get started now. Download Synthetica <a href="#">FREE</a>, via Codrops.</h2>
-                        <a href="#" class="btn secondary-white">Get started</a>
+                        
                     </div>
                 </div>
             </div>
@@ -160,31 +158,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 footer-branding">
-                        <img class="footer-branding-logo" src="img/synthetica-logo.png" alt="Synthetica freebie html5 css3 template peter finlan logo">
-                        <p>A free HTML5/CSS3 template by <a href="#">Peter Finlan</a>, exclusively for <span class="bold-italic">Codrops</span></p>
+                        <a href="#">Публичная Оферта</a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12 footer-nav">
-                        <ul class="footer-primary-nav">
-                            <li><a href="#intro">The Collective</a></li>
-                            <li><a href="#team">The Crew</a></li>
-                            <li><a href="#articles">Articles</a></li>
-                            <li><a href="#freebies">Freebies</a></li>
-                            <li><a href="#">Subscribe</a></li>
-                        </ul>
-                        <ul class="footer-share">
-                            <li><a href="#" class="share-trigger"><i class="fa fa-share"></i>Share</a></li>
-                        </ul>
-                        <div class="share-dropdown">
-                            <ul>
-                                <li><a href="#" class="share-twitter"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" class="share-facebook"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" class="share-linkedin"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
                         <ul class="footer-secondary-nav">
-                            <li>© Synthetica 2016. A free HTML5/CSS3 Template by <a href="#">Peter Finlan</a> Взято с <a href="http://bayguzin.ru">bayguzin.ru</a></li>
+                            <li>ИП Санджиева Фаина Санджаевна</li>
+                            <li>ОГРНИП 315081600010093</li>
+                            <li> ИНН 081410033690</li>
+                            <li>127473, г. Москва, 1-ый Щемиловский пер., д. 17</li>
+                            <li>admin@беговаяжиротопка.рф</li>
                         </ul>
                     </div>
                 </div>

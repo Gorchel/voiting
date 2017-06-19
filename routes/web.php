@@ -19,6 +19,8 @@ Route::get('register', ['uses' => 'HomeController@index' ] );
 Route::post('register', ['uses' => 'HomeController@registration' ] );
 Route::post('login', ['as' => 'login', 'uses' => 'HomeController@login' ] );
 
+Route::get('activasion', ['as' => 'activasion', 'uses' => 'HomeController@activasion' ] );
+
 Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
 	Route::get('logout', [ 'as' => 'logout', 'uses' => 'HomeController@logout' ] );
 	Route::post('set_voice', [ 'as' => 'logout', 'uses' => 'HomeController@set_voice' ] );

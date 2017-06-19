@@ -11,6 +11,7 @@ use App\User;
 use App\Role;
 
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {	
@@ -18,7 +19,7 @@ class HomeController extends Controller
 		$sentinelUser = Sentinel::getUser();
 
 		if ( !empty($sentinelUser) ) {
-			$user = User::where('id','=',$sentinelUser->id)->select('id')->with('сontestants')->first();
+			$user = User::where('id','=',$sentinelUser->id)->select(['id','activated'])->with('сontestants')->first();
 		} else {
 			$user = null;
 		}
@@ -74,6 +75,23 @@ class HomeController extends Controller
 		return ['response' => 200];
 	}
 
+	public function activasion (Request $request) {
+		$user = User::where( 'id','=',$request->get('id') )->select(['id','secrete'])->first();
+
+		if ( empty($user) ) {
+			return redirect('/')->withInput(['response' => 400, 'text' => 'User not found']);
+		}
+
+		if ($user->secrete != $request->get('secrete')) {
+			return redirect('/')->withInput(['response' => 400, 'text' => 'Secret key is failed']);
+		}
+
+		$user->activated = true;
+		$user->save();
+
+        return redirect('/');
+	}
+
 	/**
 	 * Регистрация пользователя
 	 */
@@ -102,16 +120,33 @@ class HomeController extends Controller
         $user = Sentinel::register($credentials);
 
         if ( $user ) {
-        	$activation = Activation::create($user);
-            $activation->completed = 1;
-            $activation->save();
+        	$secrete = md5(date('Y-m-d').uniqid());
+        	$user->secrete = $secrete;
+			$user->save();
+
+			$activation = Activation::create($user);
+	        $activation->completed = 1;
+	        $activation->save();
 
             $role = Sentinel::findRoleBySlug("voiter");
             $role->users()->attach($user);
 
             Sentinel::authenticateAndRemember([ 'email' => $request->get('email'), 'password' => $request->get('password') ]);
 
-            return redirect('/');
+            $mail_data = [
+				'user' => $user
+			];
+            // Mail::send('_mail', $mail_data, function($message) use ($user)
+            // { 
+
+            //     $message->from('kasatka567@gmail.com', 'Беговая Жиротопка');
+ 
+            //     $message->to($user->email);
+               
+            //     $message->subject('Подтверждение регистрации!');
+            // });
+
+            return redirect('/')->withInput(['response' => 200, 'text' => 'Спасибо за регистрацию. На вашу почту отправлен код подтверждения!']);
         } else {
             return redirect()->back()->withInput();
         }
