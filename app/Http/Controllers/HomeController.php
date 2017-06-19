@@ -141,17 +141,18 @@ class HomeController extends Controller
             $mail_data = [
 				'user' => $user
 			];
-            // Mail::send('_mail', $mail_data, function($message) use ($user)
-            // { 
+            Mail::send('_mail', $mail_data, function($message) use ($user)
+            { 
 
-            //     $message->from('kasatka567@gmail.com', 'Беговая Жиротопка');
+                $message->from('voiter@dsandzhiev.myjino.ru', 'Беговая Жиротопка');
  
-            //     $message->to($user->email);
+                $message->to($user->email);
                
-            //     $message->subject('Подтверждение регистрации!');
-            // });
+                $message->subject('Подтверждение регистрации!');
+            });
 
-            return redirect('/')->withInput(['response' => 200, 'text' => 'Спасибо за регистрацию. На вашу почту отправлен код подтверждения!']);
+            //return redirect('/')->withInput(['response' => 200, 'text' => 'Спасибо за регистрацию. На вашу почту отправлен код подтверждения!']);
+            return redirect('/')
         } else {
             return redirect()->back()->withInput();
         }
