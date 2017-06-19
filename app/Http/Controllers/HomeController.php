@@ -152,7 +152,7 @@ class HomeController extends Controller
             });
 
             //return redirect('/')->withInput(['response' => 200, 'text' => 'Спасибо за регистрацию. На вашу почту отправлен код подтверждения!']);
-            return redirect('/')
+            return redirect('/');
         } else {
             return redirect()->back()->withInput();
         }
