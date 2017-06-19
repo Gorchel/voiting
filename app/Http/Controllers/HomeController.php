@@ -53,7 +53,12 @@ class HomeController extends Controller
 			return ['response' => 400, 'text' => 'User not found'];
 		}
 
-		$user = User::where('id','=',$sentinelUser->id)->select('id')->first();
+		$user = User::where('id','=',$sentinelUser->id)->select('id','activated')->first();
+
+
+		if ( empty( $user->activated ) ){
+			return ['response' => 400, 'text' => 'Подтвердите, пожалуйста, аккаунт на почте'];
+		}
 
 		if ( count( $user->сontestants ) > 0 ){
 			return ['response' => 400, 'text' => 'Извините, Вы уже оставиляли свой голос'];
