@@ -7,6 +7,33 @@ jQuery.ajaxSetup({
 });
 
 $(document).ready(function() {
+
+	var hash = window.location.hash;
+
+	if (hash == '#registration') {
+		swal({
+			title: "Спасибо за регистрацию",
+			text: 'На ваш почтовый адрес отправлено письмо с кодом подтверждения.',
+			type: 'success',
+			showCancelButton: false,
+			confirmButtonColor: "#414A52",
+			confirmButtonText: 'Ок',
+			confirmButtonClass: 'btn registration-btn',
+		  //closeOnConfirm: true
+		})
+	} else if (hash == '#activasion') {
+		swal({
+			title: "Ваша почта подтверждена",
+			text: 'Вы можете проголосовать за любого конкурсанта.',
+			type: 'success',
+			showCancelButton: false,
+			confirmButtonColor: "#414A52",
+			confirmButtonText: 'Ок',
+			confirmButtonClass: 'btn registration-btn',
+		  //closeOnConfirm: true
+		})
+	}
+
 	var counterZero = '0';
     $('.stats-number').text(counterZero);
 

@@ -20,11 +20,22 @@ header h1 b {
 }
 
 header h3 {
+	margin: 15px 0px 10px 0px;
 	color: #E4F1FE;
 
 	text-transform: uppercase;
 	margin: 70px 0px 30px 0px;
 } 
+
+.logo {
+	width: 370px !important;
+	padding: 20px 0px !important;
+}
+
+.logo img {
+	width: 30%;
+	float: left;
+}
 
 #clock-table {
 	margin: 0px auto;
@@ -76,6 +87,22 @@ h4 {
 	margin-bottom: 30px;
 }
 
+.crew-member:hover .crew-btn {
+	display: none;
+}
+
+.crew-btn {
+	text-align: center;
+    color: #414A52;
+    font-size: 20px;
+    margin: 90% 0;
+    display: inline-block;
+    border: 2px solid #414A52;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: white;
+}
+
 .logo h3 {
 	color: white;
 	margin: 10px 0px;
@@ -88,6 +115,10 @@ h4 {
 
 .crew-member:hover {
 	cursor: pointer;
+}
+
+.crew-member h2 {
+	font-size: 20px !important;
 }
 
 .vote-conter {
@@ -106,6 +137,7 @@ h4 {
 	margin: 1px;
 	padding: 1px;
 	font-size: 18px;
+	margin-top: 40px;
 }
 
 .overlay-check:hover {

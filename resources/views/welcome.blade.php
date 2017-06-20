@@ -29,6 +29,7 @@
             <div class="row">
                 <div class="header-nav-wrapper">
                     <div class="logo">
+                        <img src="img/fav.gif" alt="">
                         <h3><b>Б</b>еговая <b>Ж</b>иротопка</h3>
                     </div>
                     <div class="primary-nav-wrapper">
@@ -43,7 +44,7 @@
                                     @if (!empty($user))
                                         <a href="/logout">Выйти</a>
                                     @else
-                                        <a href="#" class="registration">Зарегестрироваться</a>
+                                        <a href="#" class="registration">Зарегистрироваться</a>
                                     @endif
                                 </li>
                             </ul>
@@ -58,7 +59,7 @@
         <header>
             <div class="container">
                 <h1 class="text-center">Розыгрыш главных призов проекта <b>"БЖ"</b></h1>
-                <h3 class="text-center">До начала проекта осталось</h3>
+                <h3 class="text-center">До конца розыгрыша осталось</h3>
                 <table id="clock-table">
                     <tr id="clock-number">
                         <td id="day">
@@ -96,13 +97,18 @@
                         <div class="row">
                             @forelse( $сontestants[1] as $сontestant ) 
                                 <div class="col-md-3 col-sm-6 col-xs-12 crew-container">
-                                    <article class="crew-member {{!empty($user) ? (count($user->сontestants) == 0) && !empty($user->activated) ? 'voite' : '' : 'registration'}}" data-id="{{ $сontestant->id }}" style="background-image: url({{ 'img/'.$сontestant->file_path }})">
+                                    <article class="crew-member text-center {{!empty($user) ? (count($user->сontestants) == 0) && !empty($user->activated) ? 'voite' : '' : 'registration'}}" data-id="{{ $сontestant->id }}" style="background-image: url({{ 'img/'.$сontestant->file_path }})">
+
+                                        @if(empty($user))
+                                            <!-- <span class="crew-btn">Зарегистрироваться</span> -->
+                                        @elseif(count($user->сontestants) == 0 && !empty($user->activated))
+                                            <span class="crew-btn">Проголосовать</span>
+                                        @endif
                                         <figure>
                                             <figcaption class="overlay">
                                                 <h2>{{$сontestant->first_name.' '.$сontestant->last_name}}</h2>
-                                                <p>{{$сontestant->description}}</p>
                                                 @if(empty($user))
-                                                    <p class="overlay-check">Зарегестрироваться</p>
+                                                    <p class="overlay-check">Зарегистрироваться</p>
                                                 @elseif(count($user->сontestants) == 0 && !empty($user->activated))
                                                     <p class="overlay-check">Проголосовать</p>
                                                 @endif
@@ -120,12 +126,16 @@
                             @forelse( $сontestants[0] as $сontestant ) 
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     <article class="crew-member {{!empty($user) ? (count($user->сontestants) == 0) && !empty($user->activated) ? 'voite' : '' : 'registration'}}" data-id="{{ $сontestant->id }}" style="background-image: url({{ 'img/'.$сontestant->file_path }})">
+                                        @if(empty($user))
+                                            <!-- <span class="crew-btn">Зарегистрироваться</span> -->
+                                        @elseif(count($user->сontestants) == 0 && !empty($user->activated))
+                                            <span class="crew-btn">Проголосовать</span>
+                                        @endif
                                         <figure>
                                             <figcaption class="overlay">
                                                 <h2>{{$сontestant->first_name.' '.$сontestant->last_name}}</h2>
-                                                <p>{{$сontestant->description}}</p>
                                                 @if(empty($user))
-                                                    <p class="overlay-check">Зарегестрироваться</p>
+                                                    <p class="overlay-check">Зарегистрироваться</p>
                                                 @elseif(count($user->сontestants) == 0 && !empty($user->activated))
                                                     <p class="overlay-check">Проголосовать</p>
                                                 @endif
@@ -141,19 +151,7 @@
                 </div>
             </div>
         </section>
-        <!-- END SECTION: Freebies -->
-        <!-- SECTION: Get started -->
-        <section class="get-started has-padding text-center" id="get-started">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 wp4">
-                        
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- END SECTION: Get started -->
-        <!-- SECTION: Footer -->
+      
         <footer class="has-padding footer-bg">
             <div class="container">
                 <div class="row">
@@ -212,7 +210,7 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.min.js"></script>  
         
         <!-- <script type="text/javascript" src="js/scripts-min.js"></script>  -->
-        <script type="text/javascript" src="/js/app.js"></script> 
+        <script type="text/javascript" src="/js/app.js?2123"></script> 
 
     
         @section('js')

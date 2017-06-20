@@ -94,7 +94,7 @@ class HomeController extends Controller
 		$user->activated = true;
 		$user->save();
 
-        return redirect('/');
+        return redirect(route('/') . '#activasion');
 	}
 
 	/**
@@ -151,8 +151,7 @@ class HomeController extends Controller
                 $message->subject('Подтверждение регистрации!');
             });
 
-            //return redirect('/')->withInput(['response' => 200, 'text' => 'Спасибо за регистрацию. На вашу почту отправлен код подтверждения!']);
-            return redirect('/');
+            return redirect(route('/') . '#registration');
         } else {
             return redirect()->back()->withInput();
         }
