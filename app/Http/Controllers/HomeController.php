@@ -13,6 +13,8 @@ use App\Role;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
 
+use Log;
+
 class HomeController extends Controller
 {	
 	public function index() {
@@ -141,15 +143,19 @@ class HomeController extends Controller
             $mail_data = [
 				'user' => $user
 			];
-            Mail::send('_mail', $mail_data, function($message) use ($user)
-            { 
+			try {
+				Mail::send('_mail', $mail_data, function($message) use ($user)
+	            { 
 
-                $message->from('voiter@dsandzhiev.myjino.ru', 'Беговая Жиротопка');
- 
-                $message->to($user->email);
-               
-                $message->subject('Подтверждение регистрации!');
-            });
+	                $message->from('voiter@dsandzhiev.myjino.ru', 'Беговая Жиротопка');
+	 
+	                $message->to($user->email);
+	               
+	                $message->subject('Подтверждение регистрации!');
+	            });
+			} catch (Exception $e) {
+				Log::error($e->getMessage());
+			}
 
             return redirect(route('/') . '#registration');
         } else {
