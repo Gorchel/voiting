@@ -194,5 +194,19 @@ h4 {
 	background-color: rgb(230,230,230);
 }
 
+#oferta-modal h4 {
+	margin-bottom: 10px;
+}
+
+#oferta-modal ul {
+	padding: 0px 20px;
+}
+
+#oferta-modal ul li {
+	list-style-type: circle;
+}
+
+    
+
 
     
