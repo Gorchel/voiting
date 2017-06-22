@@ -32,6 +32,27 @@ $(document).ready(function() {
 			confirmButtonClass: 'btn registration-btn',
 		  //closeOnConfirm: true
 		})
+	} else if (hash == '#post_is_confirmed') {
+		swal({
+			title: "Внимание",
+			text: 'Данный email уже зарегистрирован.',
+			type: 'warning',
+			showCancelButton: false,
+			confirmButtonColor: "#414A52",
+			confirmButtonText: 'Ок',
+			confirmButtonClass: 'btn registration-btn',
+		  //closeOnConfirm: true
+		})
+	} else if (hash == '#set_voice') {
+		swal({
+			title: "Спасибо за голос",
+			type: 'success',
+			showCancelButton: false,
+			confirmButtonColor: "#414A52",
+			confirmButtonText: 'Ок',
+			confirmButtonClass: 'btn registration-btn',
+		  //closeOnConfirm: true
+		})
 	}
 
 	var counterZero = '0';
@@ -107,7 +128,7 @@ $(document).ready(function() {
 						  confirmButtonClass: 'btn registration-btn',
 						  //closeOnConfirm: true
 						}).then( function () {
-						  location.reload();
+						  location.href = '/#set_voice';
 						});
 	                }
 	            }
@@ -117,7 +138,8 @@ $(document).ready(function() {
 }); 
 
 function getTimeRemaining(){
-	var startDate = new Date("dec,21,2017,11:11:00");
+	var startDate = new Date("07,02,2017,18:00:00");
+
 	var t = Date.parse(startDate) - Date.parse(new Date());
 	var seconds = Math.floor( (t/1000) % 60 );
 	var minutes = Math.floor( (t/1000/60) % 60 );

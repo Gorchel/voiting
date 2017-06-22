@@ -27,16 +27,6 @@ header h3 {
 	margin: 70px 0px 30px 0px;
 } 
 
-.logo {
-	width: 370px !important;
-	padding: 20px 0px !important;
-}
-
-.logo img {
-	width: 30%;
-	float: left;
-}
-
 #clock-table {
 	margin: 0px auto;
 }
@@ -56,6 +46,108 @@ header h3 {
 #clock-table #clock-text {
 	font-size: 30px;
 	color: #E4F1FE;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+	.logo {
+		width: 370px !important;
+		padding: 20px 0px !important;
+	}
+
+	.logo img {
+		width: 30%;
+		float: left;
+	}
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+	.logo {
+		width: 370px !important;
+		padding: 20px 0px !important;
+	}
+
+	.logo img {
+		width: 30%;
+		float: left;
+	}
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+	.logo {
+		width: 100% !important;
+		padding: 10px 0px !important;
+	}
+
+	.logo img {
+		width: 20%;
+		float: left;
+	}
+
+	header h1 {
+		font-size: 30px;
+	}
+
+	header h3 {
+		margin: 15px 0px 10px 0px;
+		color: #E4F1FE;
+
+		text-transform: uppercase;
+		margin: 40px 0px 10px 0px;
+	}
+
+	#clock-table #clock-number {
+		font-size: 30px;
+	}
+
+	#clock-table #clock-text {
+		font-size: 20px;
+	}
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+	.logo {
+		width: 100% !important;
+		padding: 10px 0px !important;
+	}
+
+	.logo img {
+		width: 20%;
+		float: left;
+	}
+
+	.logo h3 {
+		font-size: 16px;
+		padding-top: 20px;
+	}
+
+	header h1 {
+		font-size: 30px;
+	}
+
+	header h3 {
+		margin: 15px 0px 10px 0px;
+		color: #E4F1FE;
+
+		text-transform: uppercase;
+		margin: 40px 0px 10px 0px;
+	}
+	
+	#clock-table #clock-number {
+		font-size: 30px;
+	}
+
+	#clock-table #clock-text {
+		font-size: 20px;
+	}
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+
 }
 
 .crew {
