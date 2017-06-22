@@ -147,7 +147,7 @@ class HomeController extends Controller
 				Mail::send('_mail', $mail_data, function($message) use ($user)
 	            { 
 
-	                $message->from('voiter@dsandzhiev.myjino.ru', 'Беговая Жиротопка');
+	                $message->from('voiter@xn--80aabeelkqs9aeanl5a7r.xn--p1ai', 'Беговая Жиротопка');
 	 
 	                $message->to($user->email);
 	               
